@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Gibson";
+  font-weight: 300;
+  src: url("./fonts/Gibson-Light.ttf");
+}
+@font-face {
+  font-family: "Gibson";
+  font-weight: 400;
+  src: url("./fonts/Gibson-Regular.ttf");
+}
+@font-face {
+  font-family: "Gibson";
+  font-weight: 600;
+  src: url("./fonts/Gibson-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Gibson";
+  font-weight: 700;
+  src: url("./fonts/Gibson-Bold.ttf");
+}
+@font-face {
+  font-family: "Gibson";
+  font-style: italic;
+  src: url("./fonts/Gibson-Italic.ttf");
+}
+
+@font-face {
+  font-family: "DairyMilk";
+  font-style: 600;
+  src: url("./fonts/DairyMilkFont-Medium.otf");
+}
