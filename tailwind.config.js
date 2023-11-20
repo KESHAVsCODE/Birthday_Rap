@@ -7,6 +7,10 @@ export default {
         gibson: ["Gibson", "sans-serif"],
         dairyMilk: ["DairyMilk", "sans-serif"],
       },
+      backgroundImage: {
+        mainBackground: "url(./src/assets/Images/BG.jpg)",
+        heroCelebrationsBG: "url(./src/assets/Images/CelebrationsBG.png)",
+      },
     },
   },
   plugins: [],
