@@ -1,12 +1,9 @@
-import { useContext, useState } from "react";
-import CelebrationsImg from "../assets/Images/CelebrationsBG.png";
+import CapGift from "../assets/Images/Cap&Gift.png";
 import PartyPoppers from "../assets/Images/PartyPoppers.png";
-import YellowTone from "../assets/Images/YellowTone.png";
-import UserContext from "../context/UserContextProvider";
-const Registration = () => {
-  const { userPreferencesData, setUserPreferencesData } =
-    useContext(UserContext);
-
+import Balloon from "../assets/Images/Balloon.png";
+import PurpleTone from "../assets/Images/PurpleTone.png";
+import { useState } from "react";
+const BirthdayPerson = () => {
   const [user, setUser] = useState({
     name: "",
     phone: "",
@@ -14,60 +11,26 @@ const Registration = () => {
     terms: false,
     promotion: false,
   });
-
-  const [userError, setUserError] = useState({
-    nameError: "",
-    phoneError: "",
-    emailError: "",
-    termsError: false,
-    promotion: false,
-  });
-
-  const isValidEmail = (email) => {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // Check if the email matches the pattern
-    return emailPattern.test(email);
-  };
-
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-
-    console.log(id, value);
-    if (id === "phone" && !/^(?!0)[0-9]*$/.test(value)) return;
-
-    setUser({ ...user, [id]: value });
-  };
-
-  const handleSubmitClick = () => {
-    const error = {
-      nameError: user.name ? "" : "Please enter your full name",
-      phoneError: user.phone ? "" : "Please enter your phone number",
-      emailError: user.email
-        ? isValidEmail(user.email)
-          ? ""
-          : "Enter a valid email address"
-        : "Enter your email address",
-      termsError: user.terms ? "" : "Please accept terms and conditions",
-    };
-  };
-
+  const handleProceedClick = () => {};
+  const handleInputChange = () => {};
   return (
-    <section name="registration">
-      <div className="-mt-[26px] flex justify-center">
-        <img
-          src={CelebrationsImg}
-          className="w-[340px]"
-          alt="cadbury-celebration-img"
-        />
-      </div>
-      <div className="mx-auto max-w-[350px] pb-6 -mt-[70px]">
-        <p className="pt-1 pb-2 text-center text-white tracking-wide font-dairyMilk">
-          Register to create
+    <section className="mx-auto">
+      <div className="w-[350px] mx-auto pt-10 grid justify-items-center">
+        <p className="text-white font-medium">
+          Tell us about your loved one...
         </p>
-
+        <div className="w-full flex justify-between items-center">
+          <img
+            src={PartyPoppers}
+            className="w-12 self-end pb-6"
+            alt="party-poppers-image"
+          />
+          <img src={CapGift} className="w-[200px]" alt="cap-gift-image" />
+          <img src={Balloon} className="w-10 " alt="Balloon-image" />
+        </div>
+      </div>
+      <div className="px-6">
         <form
-          id="register"
           action=""
           onSubmit={(e) => e.preventDefault()}
           className="grid gap-4"
@@ -90,7 +53,7 @@ const Registration = () => {
             value={user.name}
             placeholder="Full Name"
             className="text-sm px-4 py-2 rounded-3xl outline-none"
-            onChange={handleInputChange}
+            onChange={handleProceedClick}
           />
           <input
             type="email"
@@ -99,7 +62,7 @@ const Registration = () => {
             value={user.email}
             placeholder="Email ID"
             className="text-sm px-4 py-2 rounded-3xl outline-none"
-            onChange={handleInputChange}
+            onChange={handleProceedClick}
           />
 
           <div className="px-4 flex items-center gap-4">
@@ -126,12 +89,12 @@ const Registration = () => {
             />
             <button
               type="submit"
-              onClick={handleSubmitClick}
+              onClick={handleProceedClick}
               className="px-8 font-bold rounded-lg bg-[#e3b364] text-[#340073] "
             >
               Submit
             </button>
-            <img src={YellowTone} className="w-5" alt="yellow-tone-image" />
+            <img src={PurpleTone} className="w-5" alt="yellow-tone-image" />
           </div>
         </form>
       </div>
@@ -139,4 +102,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default BirthdayPerson;

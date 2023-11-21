@@ -9,8 +9,8 @@ import {
 
 const ProgressBar = () => {
   return (
-    <div className="flex justify-center p-4 absolute w-full">
-      <img src={progressBar} className="h-3" alt="progress-bar-image" />
+    <div className="flex justify-center p-4 absolute top-[100%] left-0 right-0">
+      <img src={progressBar} className="h-[12px]" alt="progress-bar-image" />
     </div>
   );
 };
