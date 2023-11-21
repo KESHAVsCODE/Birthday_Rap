@@ -8,8 +8,8 @@ export default {
         dairyMilk: ["DairyMilk", "sans-serif"],
       },
       backgroundImage: {
-        mainBackground: "url(./src/assets/PartyImages/BG.jpg)",
-        heroCelebrationsBG: "url(./src/assets/PartyImages/CelebrationsBG.png)",
+        mainBackground: "url(src/assets/PartyImages/BG.jpg)",
+        heroCelebrationsBG: "url(src/assets/PartyImages/CelebrationsBG.png)",
       },
     },
   },
