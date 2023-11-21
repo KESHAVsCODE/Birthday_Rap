@@ -4,20 +4,53 @@ import {
   PartyPoppers,
   PurpleTone,
 } from "../assets/PartyImages/partyImages";
+import AgePicker from "./AgePicker";
+import UserContext from "../context/UserContextProvider";
+import { useContext } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router";
+
 const BirthdayPerson = () => {
-  const [user, setUser] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    terms: false,
-    promotion: false,
+  const { userPreferencesData, setUserPreferencesData } =
+    useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  const [age, setAge] = useState(23);
+
+  const [birthdayPersonDetails, setBirthdayPersonDetails] = useState({
+    birthdayPersonName: "",
+    gender: "Male",
   });
-  const handleProceedClick = () => {};
-  const handleInputChange = () => {};
+
+  const [nameError, setNameError] = useState("");
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    if (id === "gender") {
+      console.log(value, id);
+    }
+    setBirthdayPersonDetails({ ...birthdayPersonDetails, [id]: value });
+  };
+  const handleProceedClick = () => {
+    if (!birthdayPersonDetails.birthdayPersonName) {
+      setNameError("Please enter your full name");
+      return;
+    }
+    setNameError("");
+
+    setUserPreferencesData({
+      ...userPreferencesData,
+      ...birthdayPersonDetails,
+      age,
+    });
+
+    navigate("/song_preference");
+  };
+
   return (
     <section className="mx-auto">
-      <div className="w-[350px] mx-auto pt-10 grid justify-items-center">
+      <div className="max-w-[350px] mx-auto pt-10 grid justify-items-center">
         <p className="text-white font-medium">
           Tell us about your loved one...
         </p>
@@ -27,76 +60,70 @@ const BirthdayPerson = () => {
             className="w-12 self-end pb-6"
             alt="party-poppers-image"
           />
-          <img src={CapGift} className="w-[200px]" alt="cap-gift-image" />
-          <img src={Balloon} className="w-10 " alt="Balloon-image" />
+          <img src={CapGift} className="max-w-[200px]" alt="cap-gift-image" />
+          <img src={Balloon} className="w-10" alt="Balloon-image" />
         </div>
       </div>
-      <div className="px-6">
+      {/* ========================================= */}
+      <div>
         <form
-          action=""
           onSubmit={(e) => e.preventDefault()}
           className="grid gap-4"
           noValidate
         >
-          <input
-            type="tle"
-            id="phone"
-            name="phone"
-            maxLength={10}
-            value={user.phone}
-            placeholder="Phone Number"
-            className="text-sm  px-4 py-2 rounded-3xl outline-none"
-            onChange={handleInputChange}
-          />
+          {/* ========================================= */}
+          <p className="text-center text-white tracking-wide font-dairyMilk">
+            Their name
+          </p>
           <input
             type="text"
-            id="name"
-            name="username"
-            value={user.name}
-            placeholder="Full Name"
-            className="text-sm px-4 py-2 rounded-3xl outline-none"
-            onChange={handleProceedClick}
-          />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={user.email}
-            placeholder="Email ID"
-            className="text-sm px-4 py-2 rounded-3xl outline-none"
-            onChange={handleProceedClick}
+            id="birthdayPersonName"
+            name="name"
+            value={birthdayPersonDetails.name}
+            placeholder={nameError || "xxxx xxxx xxxx"}
+            className={`text-sm text-purple font-gibson font-semibold  px-4 py-2 rounded-3xl outline-none ${
+              nameError ? " placeholder:text-error" : ""
+            }`}
+            onChange={handleInputChange}
           />
 
-          <div className="px-4 flex items-center gap-4">
-            <input type="radio" id="terms" className="" />
-            <p className="text-xs text-white">
-              I accept Terms & Conditions and Privacy Policy of Mondelez
-              (Cadbury)
-            </p>
+          {/* ========================================= */}
+          <p className="text-center text-white tracking-wide font-dairyMilk">
+            How old they&rsquo;ll be this birthday
+          </p>
+          <AgePicker age={age} setAge={setAge} />
+
+          {/* ========================================= */}
+          <p className="text-center text-white tracking-wide font-dairyMilk">
+            Gender
+          </p>
+          <div className="relative">
+            <select
+              id="gender"
+              onChange={handleInputChange}
+              className="w-full text-sm text-purple px-4 py-2 font-gibson font-semibold text-[]  rounded-3xl outline-none appearance-none"
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <i className="fa-solid fa-caret-down text-purple  absolute right-3 top-2 -translate-x-1/2"></i>
           </div>
 
-          <div className="px-4 flex items-center gap-4">
-            <input type="radio" id="promotion" className="" />
-            <p className="text-xs text-white">
-              I would like to receive promotional communication from Mondelez
-              (Cadbury) about its products and offers.
-            </p>
-          </div>
-
-          <div className="flex justify-between">
+          {/* ========================================= */}
+          <div className="pt-4 flex justify-center relative">
             <img
-              src={PartyPoppers}
-              className="w-10"
-              alt="party-poppers-image"
+              src={PurpleTone}
+              className="w-5 absolute left-10"
+              alt="yellow-tone-image"
             />
             <button
               type="submit"
               onClick={handleProceedClick}
-              className="px-8 font-bold rounded-lg bg-[#e3b364] text-[#340073] "
+              className="py-[6px] px-8 font-bold rounded-lg bg-yellow text-purple "
             >
-              Submit
+              Proceed
             </button>
-            <img src={PurpleTone} className="w-5" alt="yellow-tone-image" />
           </div>
         </form>
       </div>

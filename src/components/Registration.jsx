@@ -5,25 +5,28 @@ import {
   PartyPoppers,
   YellowTone,
 } from "../assets/PartyImages/partyImages";
+import { useNavigate } from "react-router";
 
 const Registration = () => {
   const { userPreferencesData, setUserPreferencesData } =
     useContext(UserContext);
 
+  const navigate = useNavigate();
+
   const [user, setUser] = useState({
     name: "",
     phone: "",
     email: "",
-    terms: false,
-    promotion: false,
+    terms: "off",
+    promotion: "off",
   });
 
   const [userError, setUserError] = useState({
     nameError: "",
     phoneError: "",
     emailError: "",
-    termsError: false,
-    promotion: false,
+    termsError: "",
+    promotion: "",
   });
 
   const isValidEmail = (email) => {
@@ -43,16 +46,40 @@ const Registration = () => {
   };
 
   const handleSubmitClick = () => {
-    const error = {
+    const errors = {
       nameError: user.name ? "" : "Please enter your full name",
-      phoneError: user.phone ? "" : "Please enter your phone number",
+      phoneError: user.phone
+        ? user.phone.length === 10
+          ? ""
+          : "Phone number should be of 10 digits"
+        : "Please enter your phone number",
       emailError: user.email
         ? isValidEmail(user.email)
           ? ""
           : "Enter a valid email address"
         : "Enter your email address",
-      termsError: user.terms ? "" : "Please accept terms and conditions",
+      termsError:
+        user.terms === "on" ? "" : "Please accept terms and conditions",
     };
+
+    if (
+      errors.nameError ||
+      errors.emailError ||
+      errors.phoneError ||
+      errors.termsError
+    ) {
+      //if error exists this will add the respective error messages
+      setUserError({ ...userError, ...errors });
+
+      return;
+    } else {
+      //if error not exists this will remove the previous errors
+      setUserError({ ...errors });
+    }
+
+    setUserPreferencesData({ ...userPreferencesData, ...user });
+
+    navigate("/birthday_person");
   };
 
   return (
@@ -71,7 +98,6 @@ const Registration = () => {
 
         <form
           id="register"
-          action=""
           onSubmit={(e) => e.preventDefault()}
           className="grid gap-4"
           noValidate
@@ -82,8 +108,10 @@ const Registration = () => {
             name="phone"
             maxLength={10}
             value={user.phone}
-            placeholder="Phone Number"
-            className="text-sm  px-4 py-2 rounded-3xl outline-none"
+            placeholder={userError.phoneError || "Phone Number"}
+            className={`text-sm  px-4 py-2 rounded-3xl outline-none ${
+              userError.phoneError ? "placeholder:text-error" : ""
+            } `}
             onChange={handleInputChange}
           />
           <input
@@ -91,8 +119,10 @@ const Registration = () => {
             id="name"
             name="username"
             value={user.name}
-            placeholder="Full Name"
-            className="text-sm px-4 py-2 rounded-3xl outline-none"
+            placeholder={userError.nameError || "Full Name"}
+            className={`text-sm px-4 py-2 rounded-3xl outline-none ${
+              userError.nameError ? "placeholder:text-error" : ""
+            } `}
             onChange={handleInputChange}
           />
           <input
@@ -100,21 +130,28 @@ const Registration = () => {
             id="email"
             name="email"
             value={user.email}
-            placeholder="Email ID"
-            className="text-sm px-4 py-2 rounded-3xl outline-none"
+            placeholder={userError.emailError || "Email ID"}
+            className={`text-sm  px-4 py-2 rounded-3xl outline-none ${
+              userError.emailError ? "placeholder:text-error" : ""
+            } `}
             onChange={handleInputChange}
           />
 
           <div className="px-4 flex items-center gap-4">
-            <input type="radio" id="terms" className="" />
-            <p className="text-xs text-white">
+            <input type="radio" id="terms" onChange={handleInputChange} />
+            <p className={`text-xs text-white`}>
               I accept Terms & Conditions and Privacy Policy of Mondelez
               (Cadbury)
             </p>
           </div>
 
           <div className="px-4 flex items-center gap-4">
-            <input type="radio" id="promotion" className="" />
+            <input
+              type="radio"
+              required
+              id="promotion"
+              onChange={handleInputChange}
+            />
             <p className="text-xs text-white">
               I would like to receive promotional communication from Mondelez
               (Cadbury) about its products and offers.
@@ -130,7 +167,7 @@ const Registration = () => {
             <button
               type="submit"
               onClick={handleSubmitClick}
-              className="px-8 font-bold rounded-lg bg-[#e3b364] text-[#340073] "
+              className="px-8 font-bold rounded-lg bg-yellow text-purple  cursor-pointer"
             >
               Submit
             </button>
