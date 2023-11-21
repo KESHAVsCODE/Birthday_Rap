@@ -15,6 +15,9 @@ export default {
       backgroundColor: {
         yellow: "#e3b364",
       },
+      borderColor: {
+        yellow: "#e3b364",
+      },
     },
   },
   plugins: [],

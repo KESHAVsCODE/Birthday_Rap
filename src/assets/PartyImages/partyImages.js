@@ -8,6 +8,9 @@ import BirthdaySongLogo from "./BirthdaySongLogo.png";
 import Hamburger from "./Hamburger.png";
 import Celebrations from "./Celebrations.png";
 import YellowTone from "./YellowTone.png";
+import Headphone from "./Headphone.png";
+import PurpleMusicTone from "./PurpleMusicTone.png";
+import Balloon2 from "./Balloon2.png";
 
 export {
   BG,
@@ -20,4 +23,7 @@ export {
   Hamburger,
   Celebrations,
   YellowTone,
+  Headphone,
+  PurpleMusicTone,
+  Balloon2,
 };
