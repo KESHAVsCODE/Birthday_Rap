@@ -1,3 +1,4 @@
+import BG from "./BG.jpg";
 import Balloon from "./Balloon.png";
 import CapGift from "./CapGift.png";
 import PartyPoppers from "./PartyPoppers.png";
@@ -9,6 +10,7 @@ import Celebrations from "./Celebrations.png";
 import YellowTone from "./YellowTone.png";
 
 export {
+  BG,
   Balloon,
   CapGift,
   PartyPoppers,
