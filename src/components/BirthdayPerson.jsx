@@ -1,7 +1,9 @@
-import CapGift from "../assets/Images/Cap&Gift.png";
-import PartyPoppers from "../assets/Images/PartyPoppers.png";
-import Balloon from "../assets/Images/Balloon.png";
-import PurpleTone from "../assets/Images/PurpleTone.png";
+import {
+  Balloon,
+  CapGift,
+  PartyPoppers,
+  PurpleTone,
+} from "../assets/PartyImages/partyImages";
 import { useState } from "react";
 const BirthdayPerson = () => {
   const [user, setUser] = useState({

@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
-import CelebrationsImg from "../assets/Images/CelebrationsBG.png";
-import PartyPoppers from "../assets/Images/PartyPoppers.png";
-import YellowTone from "../assets/Images/YellowTone.png";
 import UserContext from "../context/UserContextProvider";
+import {
+  Celebrations,
+  PartyPoppers,
+  YellowTone,
+} from "../assets/PartyImages/partyImages";
+
 const Registration = () => {
   const { userPreferencesData, setUserPreferencesData } =
     useContext(UserContext);
@@ -56,7 +59,7 @@ const Registration = () => {
     <section name="registration">
       <div className="-mt-[26px] flex justify-center">
         <img
-          src={CelebrationsImg}
+          src={Celebrations}
           className="w-[340px]"
           alt="cadbury-celebration-img"
         />

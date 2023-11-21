@@ -5,7 +5,7 @@ import {
   progressBar3,
   progressBar4,
   progressBar5,
-} from "../assets/Images/Progress_Bar/progressBarImages";
+} from "../assets/Progress_Bar/progressBarImages";
 
 const ProgressBar = () => {
   return (
