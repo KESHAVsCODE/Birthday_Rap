@@ -1,10 +1,12 @@
 import Header from "./components/Header";
-import Registration from "./components/Registration";
-import BirthdayPerson from "./components/BirthdayPerson";
+import Registration from "./components/Form1";
+import BirthdayPerson from "./components";
+import BirthdaySongPreference from "./components/Form3";
+import BirthdayPersonDetailsForm from "./components/Form4";
+import SplashScreen from "./components/SplashScreen";
 import { BG } from "./assets/PartyImages/partyImages";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import BirthdaySongPreference from "./components/BirthdaySongPreference";
-import BirthdayPersonDetailsForm from "./components/BirthdayPersonDetailsForm";
+
 import CreateSong from "./components/CreateSong";
 const CustomLayout = () => {
   return (
@@ -25,8 +27,9 @@ const App = () => {
         style={{ backgroundImage: `url(${BG})` }}
       >
         <Routes>
+          <Route index element={<SplashScreen />} />
           <Route path="/" element={<CustomLayout />}>
-            <Route index element={<Registration />} />
+            <Route path="registration" element={<Registration />} />
             <Route path="birthday_person" element={<BirthdayPerson />} />
             <Route
               path="song_preference"

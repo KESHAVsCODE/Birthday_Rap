@@ -12,6 +12,10 @@ import Headphone from "./Headphone.png";
 import PurpleMusicTone from "./PurpleMusicTone.png";
 import Balloon2 from "./Balloon2.png";
 import MessageImg from "./MessageImg.png";
+import CelebrationsHashtagBG from "./CelebrationsHashtagBG.png";
+import SideBarBG from "./SideBarBG.png";
+import CrossWhite from "./CrossWhite.png";
+import CrossYellow from "./CrossYellow.png";
 
 export {
   BG,
@@ -28,4 +32,8 @@ export {
   PurpleMusicTone,
   Balloon2,
   MessageImg,
+  CelebrationsHashtagBG,
+  SideBarBG,
+  CrossWhite,
+  CrossYellow,
 };

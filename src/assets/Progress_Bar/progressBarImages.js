@@ -5,6 +5,15 @@ import progressBar3 from "./progress bar3.png";
 import progressBar4 from "./progress bar4.png";
 import progressBar5 from "./progress bar5.png";
 
+const progressBarStepImages = [
+  progressBar,
+  progressBar1,
+  progressBar2,
+  progressBar3,
+  progressBar4,
+  progressBar5,
+];
+export default progressBarStepImages;
 export {
   progressBar,
   progressBar1,

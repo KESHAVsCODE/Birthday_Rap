@@ -3,9 +3,9 @@ import {
   CapGift,
   PartyPoppers,
   PurpleTone,
-} from "../assets/PartyImages/partyImages";
-import AgePicker from "./AgePicker";
-import UserContext from "../context/UserContextProvider";
+} from "../../assets/PartyImages/partyImages";
+import AgePicker from "../AgePicker";
+import UserContext from "../../context/UserContextProvider";
 import { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
@@ -27,9 +27,6 @@ const BirthdayPerson = () => {
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
-    if (id === "gender") {
-      console.log(value, id);
-    }
     setBirthdayPersonDetails({ ...birthdayPersonDetails, [id]: value });
   };
   const handleProceedClick = () => {
@@ -45,7 +42,7 @@ const BirthdayPerson = () => {
       age,
     });
 
-    navigate("/song_preference");
+    navigate("/song_preference?step=3");
   };
 
   return (

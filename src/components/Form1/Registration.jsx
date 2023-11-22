@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
-import UserContext from "../context/UserContextProvider";
+import UserContext from "../../context/UserContextProvider";
 import {
   Celebrations,
   PartyPoppers,
   YellowTone,
-} from "../assets/PartyImages/partyImages";
+} from "../../assets/PartyImages/partyImages";
 import { useNavigate } from "react-router";
 
 const Registration = () => {
@@ -39,7 +39,6 @@ const Registration = () => {
   const handleInputChange = (e) => {
     const { id, value } = e.target;
 
-    console.log(id, value);
     if (id === "phone" && !/^(?!0)[0-9]*$/.test(value)) return;
 
     setUser({ ...user, [id]: value });
@@ -79,7 +78,7 @@ const Registration = () => {
 
     setUserPreferencesData({ ...userPreferencesData, ...user });
 
-    navigate("/birthday_person");
+    navigate("/birthday_person?step=2");
   };
 
   return (

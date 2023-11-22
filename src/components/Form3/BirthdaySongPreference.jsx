@@ -3,9 +3,9 @@ import {
   Headphone,
   PurpleMusicTone,
   Balloon2,
-} from "../assets/PartyImages/partyImages";
+} from "../../assets/PartyImages/partyImages";
 import SongVibeSelector from "./SongVibeSelector";
-import UserContext from "../context/UserContextProvider";
+import UserContext from "../../context/UserContextProvider";
 import { useNavigate } from "react-router";
 
 const BirthdaySongPreference = () => {
@@ -21,7 +21,7 @@ const BirthdaySongPreference = () => {
 
   const handleProceedClick = () => {
     setUserPreferencesData({ ...userPreferencesData, ...musicPreferences });
-    navigate("/birthday_person_interests");
+    navigate("/birthday_person_interests?step=4");
   };
   return (
     <section className="h-[90vh] mx-auto grid grid-rows-customRows">

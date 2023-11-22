@@ -3,8 +3,8 @@ import {
   MessageImg,
   Balloon,
   PartyPoppers,
-} from "../assets/PartyImages/partyImages";
-import UserContext from "../context/UserContextProvider";
+} from "../../assets/PartyImages/partyImages";
+import UserContext from "../../context/UserContextProvider";
 import { useNavigate } from "react-router";
 const BirthdayPersonDetailsForm = () => {
   const navigate = useNavigate();
@@ -62,9 +62,8 @@ const BirthdayPersonDetailsForm = () => {
       ...userPreferencesData,
       ...birthdayPersonInterests,
     });
-    navigate("/create_song");
+    navigate("/create_song?step=5");
   };
-  console.log(birthdayPersonInterests);
 
   return (
     <section className="h-[90vh] mx-auto grid grid-rows-customRows">

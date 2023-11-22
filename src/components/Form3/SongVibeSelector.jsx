@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import GenreType from "../assets/Icons/Genre";
-import MoodType from "../assets/Icons/Mood";
-import SingerType from "../assets/Icons/SingerVoice";
+import GenreType from "../../assets/Icons/Genre";
+import MoodType from "../../assets/Icons/Mood";
+import SingerType from "../../assets/Icons/SingerVoice";
 
 // const MusicTasteSelector = [GenreType, MoodType, SingerType];
 
