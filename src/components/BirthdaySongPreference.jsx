@@ -6,8 +6,8 @@ import {
 import SongVibeSelector from "./SongVibeSelector";
 const BirthdaySongPreference = () => {
   return (
-    <section className="mx-auto">
-      <div className="max-w-[350px] mx-auto pt-10 grid justify-items-center">
+    <section className="h-[90vh] mx-auto">
+      <div className="h-[30vh] max-w-[350px] mx-auto pt-10 grid justify-items-center">
         <p className="px-10 text-center text-white font-medium">
           What would you like their song&rsquo;s vibe to be?
         </p>

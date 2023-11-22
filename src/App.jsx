@@ -25,10 +25,11 @@ const App = () => {
       >
         <Routes>
           <Route path="/" element={<CustomLayout />}>
-            <Route index element={<Registration />} />
+            <Route element={<Registration />} />
             <Route path="birthday_person" element={<BirthdayPerson />} />
             <Route
-              path="song_preference"
+              index
+              // path="song_preference"
               element={<BirthdaySongPreference />}
             />
           </Route>
