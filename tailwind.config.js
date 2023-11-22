@@ -18,6 +18,9 @@ export default {
       borderColor: {
         yellow: "#e3b364",
       },
+      gridTemplateRows: {
+        customRows: "3fr 7fr",
+      },
     },
   },
   plugins: [],

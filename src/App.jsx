@@ -4,7 +4,7 @@ import BirthdayPerson from "./components/BirthdayPerson";
 import { BG } from "./assets/PartyImages/partyImages";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import BirthdaySongPreference from "./components/BirthdaySongPreference";
-
+import BirthdayPersonDetailsForm from "./components/BirthdayPersonDetailsForm";
 const CustomLayout = () => {
   return (
     <>
@@ -25,12 +25,15 @@ const App = () => {
       >
         <Routes>
           <Route path="/" element={<CustomLayout />}>
-            <Route element={<Registration />} />
+            <Route index element={<Registration />} />
             <Route path="birthday_person" element={<BirthdayPerson />} />
             <Route
-              index
-              // path="song_preference"
+              path="song_preference"
               element={<BirthdaySongPreference />}
+            />
+            <Route
+              path="birthday_person_interests"
+              element={<BirthdayPersonDetailsForm />}
             />
           </Route>
         </Routes>

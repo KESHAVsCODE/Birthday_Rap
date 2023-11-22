@@ -11,6 +11,7 @@ import YellowTone from "./YellowTone.png";
 import Headphone from "./Headphone.png";
 import PurpleMusicTone from "./PurpleMusicTone.png";
 import Balloon2 from "./Balloon2.png";
+import MessageImg from "./MessageImg.png";
 
 export {
   BG,
@@ -26,4 +27,5 @@ export {
   Headphone,
   PurpleMusicTone,
   Balloon2,
+  MessageImg,
 };
