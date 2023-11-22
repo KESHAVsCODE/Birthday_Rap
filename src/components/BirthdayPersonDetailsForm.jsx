@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   MessageImg,
   Balloon,
   PartyPoppers,
 } from "../assets/PartyImages/partyImages";
+import UserContext from "../context/UserContextProvider";
+import { useNavigate } from "react-router";
 const BirthdayPersonDetailsForm = () => {
-  const [birthdayPersonInterests, setbirthdayPersonInterests] = useState({
+  const navigate = useNavigate();
+  const { userPreferencesData, setUserPreferencesData } =
+    useContext(UserContext);
+  const [birthdayPersonInterests, setBirthdayPersonInterests] = useState({
     petname: "",
     angry: "",
     funniest: "",
@@ -14,11 +19,55 @@ const BirthdayPersonDetailsForm = () => {
     sport: "",
   });
 
+  const [errors, setErrors] = useState({
+    petnameError: false,
+    angryError: false,
+    funniestError: false,
+    smileError: false,
+    movieError: false,
+    sportError: false,
+  });
+
   const { petname, angry, funniest, smile, movie, sport } =
     birthdayPersonInterests;
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setBirthdayPersonInterests({ ...birthdayPersonInterests, [id]: value });
+  };
+
+  const handleProceedClick = () => {
+    const error = {
+      petnameError: !petname,
+      angryError: !angry,
+      funniestError: !funniest,
+      smileError: !smile,
+      movieError: !movie,
+      sportError: !sport,
+    };
+    if (
+      error.petnameError ||
+      error.angryError ||
+      error.funniestError ||
+      error.smileError ||
+      error.movieError ||
+      error.sportError
+    ) {
+      setErrors({ ...error });
+      return;
+    } else {
+      setErrors({ ...error });
+    }
+
+    setUserPreferencesData({
+      ...userPreferencesData,
+      ...birthdayPersonInterests,
+    });
+    navigate("/create_song");
+  };
+  console.log(birthdayPersonInterests);
 
   return (
-    <section className="h-[90vh] mx-auto">
+    <section className="h-[90vh] mx-auto grid grid-rows-customRows">
       <div className="max-w-[350px] mx-auto pt-10 grid justify-items-center">
         <p className="px-10 text-center text-white font-medium">
           Tell us a little more about them...
@@ -34,73 +83,134 @@ const BirthdayPersonDetailsForm = () => {
         </div>
       </div>
 
-      <div>
+      <div className="-mt-10">
         <form
           id="register"
           onSubmit={(e) => e.preventDefault()}
-          className="grid gap-4"
+          className="h-full grid items-center"
           noValidate
         >
-          {/* =========================================== */}
-          <div className="">
-            <p className="text-center text-white tracking-wide font-dairyMilk">
-              What&rsquo;s your pet name for them
-            </p>
+          <div
+            onChange={handleInputChange}
+            className="max-h-[45vh] pb-4 grid gap-4 overflow-y-auto"
+          >
+            {/* =========================================== */}
+            <div>
+              <p className="text-center text-white tracking-wide font-dairyMilk">
+                What&rsquo;s your pet name for them
+              </p>
 
-            <input
-              type="text"
-              id="petname"
-              value={petname}
-              placeholder="xxxx xxxx xxxx"
-              className={`w-full text-sm  px-4 py-2 rounded-3xl outline-none`}
-              // onChange={handleInputChange}
-            />
-            {/* <p className="flex gap-2 items-center text-xs text-error">
-              <span className="errorSign">!</span>
-              {userDetailsErrors.nameError}
-            </p> */}
+              <input
+                type="text"
+                id="petname"
+                value={petname}
+                placeholder="xxxx xxxx xxxx"
+                className={`w-full text-sm  px-4 py-2 rounded-3xl outline-none`}
+                // onChange={handleInputChange}
+              />
+              {errors.petnameError && (
+                <p className="flex gap-2 items-center text-xs text-error">
+                  <span className="errorSign">!</span>
+                  Please enter details
+                </p>
+              )}
+            </div>
+
+            {/* =========================================== */}
+            <div>
+              <p className="text-center text-white tracking-wide font-dairyMilk">
+                What makes them angry?
+              </p>
+              <input
+                type="text"
+                id="angry"
+                value={angry}
+                placeholder="xxxx xxxx xxxx"
+                className={`w-full text-sm  px-4 py-2 rounded-3xl outline-none`}
+                // onChange={handleInputChange}
+              />
+              {errors.angryError && (
+                <p className="flex gap-2 items-center text-xs text-error">
+                  <span className="errorSign">!</span>
+                  Please enter details
+                </p>
+              )}
+            </div>
+
+            {/* =========================================== */}
+            <div>
+              <p className="text-center text-white tracking-wide font-dairyMilk">
+                What is the funniest thing they do?
+              </p>
+              <input
+                type="text"
+                id="funniest"
+                value={funniest}
+                placeholder="xxxx xxxx xxxx"
+                className={`w-full text-sm  px-4 py-2 rounded-3xl outline-none`}
+                // onChange={handleInputChange}
+              />
+              {errors.funniestError && (
+                <p className="flex gap-2 items-center text-xs text-error">
+                  <span className="errorSign">!</span>
+                  Please enter details
+                </p>
+              )}
+            </div>
+
+            {/* =========================================== */}
+            <div>
+              <p className="text-center text-white tracking-wide font-dairyMilk">
+                What makes them smile?
+              </p>
+              <input
+                type="text"
+                id="smile"
+                value={smile}
+                placeholder="xxxx xxxx xxxx"
+                className={`w-full text-sm  px-4 py-2 rounded-3xl outline-none`}
+                // onChange={handleInputChange}
+              />
+            </div>
+
+            {/* =========================================== */}
+            <div>
+              <p className="text-center text-white tracking-wide font-dairyMilk">
+                What is the favorite movie?
+              </p>
+              <input
+                type="text"
+                id="movie"
+                value={movie}
+                placeholder="xxxx xxxx xxxx"
+                className={`w-full text-sm  px-4 py-2 rounded-3xl outline-none`}
+                // onChange={handleInputChange}
+              />
+            </div>
+
+            {/* =========================================== */}
+            <div>
+              <p className="text-center text-white tracking-wide font-dairyMilk">
+                Their favorite sport.
+              </p>
+              <input
+                type="text"
+                id="sport"
+                value={sport}
+                placeholder="xxxx xxxx xxxx"
+                className={`w-full text-sm  px-4 py-2 rounded-3xl outline-none`}
+                // onChange={handleInputChange}
+              />
+            </div>
           </div>
 
-          {/* =========================================== */}
-          <p className="text-center text-white tracking-wide font-dairyMilk">
-            What makes them angry?
-          </p>
-          <input
-            type="text"
-            id="angry"
-            value={angry}
-            placeholder="xxxx xxxx xxxx"
-            className={`text-sm  px-4 py-2 rounded-3xl outline-none`}
-            // onChange={handleInputChange}
-          />
-
-          {/* =========================================== */}
-          <p className="text-center text-white tracking-wide font-dairyMilk">
-            What is the funniest thing they do?
-          </p>
-          <input
-            type="text"
-            id="funniest"
-            value={funniest}
-            placeholder="xxxx xxxx xxxx"
-            className={`text-sm  px-4 py-2 rounded-3xl outline-none`}
-            // onChange={handleInputChange}
-          />
-
-          <div className="flex justify-between">
+          <div className="flex justify-center">
             <button
               type="submit"
-              //   onClick={handleSubmitClick}
-              className="px-8 font-bold rounded-lg bg-yellow text-purple  cursor-pointer"
+              onClick={handleProceedClick}
+              className="py-3 px-8 font-bold rounded-2xl bg-yellow text-purple  cursor-pointer"
             >
-              Submit
-            </button>
-            <button
-              type="submit"
-              //   onClick={handleSubmitClick}
-              className="px-8 font-bold rounded-lg bg-yellow text-purple  cursor-pointer"
-            >
-              Submit
+              Proceed
             </button>
           </div>
         </form>

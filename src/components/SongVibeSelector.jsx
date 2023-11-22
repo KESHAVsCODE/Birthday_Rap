@@ -14,7 +14,7 @@ const SongVibeSelector = ({ musicPreferences, setMusicPreferences }) => {
   };
 
   return (
-    <section className="-mt-4 overflow-y-scroll pb-20">
+    <section className="-mt-10 overflow-y-scroll pb-20">
       {/* ============================================= */}
       <div className="mb-8 border border-yellow rounded-lg overflow-hidden">
         <h2 className="py-2 text-center text-lg font-gibson font-semibold text-purple   bg-yellow ">

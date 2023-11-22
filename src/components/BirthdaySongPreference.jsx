@@ -47,7 +47,7 @@ const BirthdaySongPreference = () => {
 
       <div
         onClick={handleProceedClick}
-        className="absolute left-0 right-0 bottom-0 flex justify-center pt-4 pb-8 bg-white bg-opacity-5"
+        className="absolute left-0 right-0 bottom-0 flex justify-center pt-4 pb-8 bg-purple bg-opacity-5 backdrop-blur-sm"
       >
         <button className="w-max py-3 px-8 text-xl font-bold rounded-lg bg-yellow text-purple ">
           Proceed

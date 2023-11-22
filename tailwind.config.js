@@ -14,12 +14,14 @@ export default {
       },
       backgroundColor: {
         yellow: "#e3b364",
+        purple: "#340073",
       },
       borderColor: {
         yellow: "#e3b364",
       },
       gridTemplateRows: {
         customRows: "3fr 7fr",
+        oneByFour: "4fr 1fr",
       },
     },
   },

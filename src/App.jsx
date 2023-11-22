@@ -5,6 +5,7 @@ import { BG } from "./assets/PartyImages/partyImages";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import BirthdaySongPreference from "./components/BirthdaySongPreference";
 import BirthdayPersonDetailsForm from "./components/BirthdayPersonDetailsForm";
+import CreateSong from "./components/CreateSong";
 const CustomLayout = () => {
   return (
     <>
@@ -20,7 +21,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div
-        className="min-h-[100vh] bg-cover bg-no-repeat bg-center bg-purple-900"
+        className="min-h-[100vh] bg-cover bg-no-repeat bg-center bg-purple relative"
         style={{ backgroundImage: `url(${BG})` }}
       >
         <Routes>
@@ -35,6 +36,7 @@ const App = () => {
               path="birthday_person_interests"
               element={<BirthdayPersonDetailsForm />}
             />
+            <Route path="create_song" element={<CreateSong />} />
           </Route>
         </Routes>
       </div>
