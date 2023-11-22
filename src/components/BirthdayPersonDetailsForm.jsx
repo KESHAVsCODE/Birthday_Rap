@@ -42,18 +42,24 @@ const BirthdayPersonDetailsForm = () => {
           noValidate
         >
           {/* =========================================== */}
-          <p className="text-center text-white tracking-wide font-dairyMilk">
-            What&rsquo;s your pet name for them
-          </p>
+          <div className="">
+            <p className="text-center text-white tracking-wide font-dairyMilk">
+              What&rsquo;s your pet name for them
+            </p>
 
-          <input
-            type="text"
-            id="petname"
-            value={petname}
-            // placeholder={userError.phoneError || "Phone Number"}
-            className={`text-sm  px-4 py-2 rounded-3xl outline-none`}
-            // onChange={handleInputChange}
-          />
+            <input
+              type="text"
+              id="petname"
+              value={petname}
+              placeholder="xxxx xxxx xxxx"
+              className={`w-full text-sm  px-4 py-2 rounded-3xl outline-none`}
+              // onChange={handleInputChange}
+            />
+            {/* <p className="flex gap-2 items-center text-xs text-error">
+              <span className="errorSign">!</span>
+              {userDetailsErrors.nameError}
+            </p> */}
+          </div>
 
           {/* =========================================== */}
           <p className="text-center text-white tracking-wide font-dairyMilk">
@@ -63,7 +69,7 @@ const BirthdayPersonDetailsForm = () => {
             type="text"
             id="angry"
             value={angry}
-            // placeholder={userError.nameError || "Full Name"}
+            placeholder="xxxx xxxx xxxx"
             className={`text-sm  px-4 py-2 rounded-3xl outline-none`}
             // onChange={handleInputChange}
           />
@@ -76,7 +82,7 @@ const BirthdayPersonDetailsForm = () => {
             type="text"
             id="funniest"
             value={funniest}
-            // placeholder={userError.emailError || "Email ID"}
+            placeholder="xxxx xxxx xxxx"
             className={`text-sm  px-4 py-2 rounded-3xl outline-none`}
             // onChange={handleInputChange}
           />

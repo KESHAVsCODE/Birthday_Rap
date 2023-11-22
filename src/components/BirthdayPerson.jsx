@@ -34,7 +34,7 @@ const BirthdayPerson = () => {
   };
   const handleProceedClick = () => {
     if (!birthdayPersonDetails.birthdayPersonName) {
-      setNameError("Please enter your full name");
+      setNameError("Please enter your birthday person full name");
       return;
     }
     setNameError("");
@@ -72,42 +72,53 @@ const BirthdayPerson = () => {
           noValidate
         >
           {/* ========================================= */}
-          <p className="text-center text-white tracking-wide font-dairyMilk">
-            Their name
-          </p>
-          <input
-            type="text"
-            id="birthdayPersonName"
-            name="name"
-            value={birthdayPersonDetails.name}
-            placeholder={nameError || "xxxx xxxx xxxx"}
-            className={`text-sm text-purple font-gibson font-semibold  px-4 py-2 rounded-3xl outline-none ${
-              nameError ? " placeholder:text-error" : ""
-            }`}
-            onChange={handleInputChange}
-          />
 
-          {/* ========================================= */}
-          <p className="text-center text-white tracking-wide font-dairyMilk">
-            How old they&rsquo;ll be this birthday
-          </p>
-          <AgePicker age={age} setAge={setAge} />
-
-          {/* ========================================= */}
-          <p className="text-center text-white tracking-wide font-dairyMilk">
-            Gender
-          </p>
-          <div className="relative">
-            <select
-              id="gender"
+          <div>
+            <p className="text-center text-white tracking-wide font-dairyMilk">
+              Their name
+            </p>
+            <input
+              type="text"
+              id="birthdayPersonName"
+              name="name"
+              value={birthdayPersonDetails.name}
+              placeholder="xxxx xxxx xxxx"
+              className={`w-full text-sm text-purple font-gibson font-semibold  px-4 py-2 rounded-3xl outline-none`}
               onChange={handleInputChange}
-              className="w-full text-sm text-purple px-4 py-2 font-gibson font-semibold text-[]  rounded-3xl outline-none appearance-none"
-            >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
-            </select>
-            <i className="fa-solid fa-caret-down text-purple  absolute right-3 top-2 -translate-x-1/2"></i>
+            />
+            {nameError && (
+              <p className="flex gap-2 items-center text-xs text-error">
+                <span className="errorSign">!</span>
+                {nameError}
+              </p>
+            )}
+          </div>
+
+          {/* ========================================= */}
+          <div>
+            <p className="text-center text-white tracking-wide font-dairyMilk">
+              How old they&rsquo;ll be this birthday
+            </p>
+            <AgePicker age={age} setAge={setAge} />
+          </div>
+
+          {/* ========================================= */}
+          <div>
+            <p className="text-center text-white tracking-wide font-dairyMilk">
+              Gender
+            </p>
+            <div className="relative">
+              <select
+                id="gender"
+                onChange={handleInputChange}
+                className="w-full text-sm text-purple px-4 py-2 font-gibson font-semibold text-[]  rounded-3xl outline-none appearance-none"
+              >
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              <i className="fa-solid fa-caret-down text-purple  absolute right-3 top-2 -translate-x-1/2"></i>
+            </div>
           </div>
 
           {/* ========================================= */}

@@ -20,7 +20,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div
-        className="min-h-[100vh] bg-cover bg-no-repeat bg-center"
+        className="min-h-[100vh] bg-cover bg-no-repeat bg-center bg-purple-900"
         style={{ backgroundImage: `url(${BG})` }}
       >
         <Routes>

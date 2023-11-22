@@ -102,46 +102,72 @@ const Registration = () => {
           className="grid gap-4"
           noValidate
         >
-          <input
-            type="tle"
-            id="phone"
-            name="phone"
-            maxLength={10}
-            value={user.phone}
-            placeholder={userError.phoneError || "Phone Number"}
-            className={`text-sm  px-4 py-2 rounded-3xl outline-none ${
-              userError.phoneError ? "placeholder:text-error" : ""
-            } `}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            id="name"
-            name="username"
-            value={user.name}
-            placeholder={userError.nameError || "Full Name"}
-            className={`text-sm px-4 py-2 rounded-3xl outline-none ${
-              userError.nameError ? "placeholder:text-error" : ""
-            } `}
-            onChange={handleInputChange}
-          />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={user.email}
-            placeholder={userError.emailError || "Email ID"}
-            className={`text-sm  px-4 py-2 rounded-3xl outline-none ${
-              userError.emailError ? "placeholder:text-error" : ""
-            } `}
-            onChange={handleInputChange}
-          />
+          <div>
+            <input
+              type="tle"
+              id="phone"
+              name="phone"
+              maxLength={10}
+              value={user.phone}
+              placeholder="Phone Number"
+              className={`w-full text-sm px-4 py-2 rounded-3xl outline-none`}
+              onChange={handleInputChange}
+            />
+            {userError.phoneError && (
+              <p className="flex gap-2 items-center text-xs text-error">
+                <span className="errorSign">!</span>
+                {userError.phoneError}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <input
+              type="text"
+              id="name"
+              name="username"
+              value={user.name}
+              placeholder="Full Name"
+              className={`w-full text-sm px-4 py-2 rounded-3xl outline-none`}
+              onChange={handleInputChange}
+            />
+            {userError.nameError && (
+              <p className="flex gap-2 items-center text-xs text-error">
+                <span className="errorSign">!</span>
+                {userError.nameError}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={user.email}
+              placeholder={userError.emailError || "Email ID"}
+              className={`w-full text-sm px-4 py-2 rounded-3xl outline-none`}
+              onChange={handleInputChange}
+            />
+            {userError.emailError && (
+              <p className="flex gap-2 items-center text-xs text-error">
+                <span className="errorSign">!</span>
+                {userError.emailError}
+              </p>
+            )}
+          </div>
 
           <div className="px-4 flex items-center gap-4">
             <input type="radio" id="terms" onChange={handleInputChange} />
             <p className={`text-xs text-white`}>
               I accept Terms & Conditions and Privacy Policy of Mondelez
-              (Cadbury)
+              (Cadbury).
+              {userError.termsError && (
+                <p className="flex gap-2 items-center text-xs text-error">
+                  <span className="errorSign">!</span>
+                  {userError.termsError}
+                </p>
+              )}
             </p>
           </div>
 

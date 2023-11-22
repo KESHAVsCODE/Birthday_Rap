@@ -8,6 +8,9 @@
             outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100
             placeholder:text-[13px] shadow-inputBoxShadow font-normal;
   }
+  .errorSign {
+    @apply text-base font-bold italic text-error;
+  }
 }
 @font-face {
   font-family: "Gibson";

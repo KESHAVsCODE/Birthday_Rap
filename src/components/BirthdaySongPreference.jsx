@@ -25,7 +25,7 @@ const BirthdaySongPreference = () => {
   };
   return (
     <section className="h-[90vh] mx-auto grid grid-rows-customRows">
-      <div className="h-[35vh] max-w-[350px] mx-auto pt-10 grid justify-items-center">
+      <div className="max-w-[350px] mx-auto pt-10 grid justify-items-center">
         <p className="px-10 text-center text-white font-medium">
           What would you like their song&rsquo;s vibe to be?
         </p>
