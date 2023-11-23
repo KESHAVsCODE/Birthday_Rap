@@ -5,13 +5,17 @@ import {
   PartyPoppers,
   YellowTone,
 } from "../../assets/PartyImages/partyImages";
-import { useNavigate } from "react-router";
+
+import { Modal, useMantineTheme } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import OtpModal from "../OtpModal";
 
 const Registration = () => {
   const { userPreferencesData, setUserPreferencesData } =
     useContext(UserContext);
 
-  const navigate = useNavigate();
+  const theme = useMantineTheme();
+  const [opened, { open, close }] = useDisclosure(false);
 
   const [user, setUser] = useState({
     name: "",
@@ -77,8 +81,7 @@ const Registration = () => {
     }
 
     setUserPreferencesData({ ...userPreferencesData, ...user });
-
-    navigate("/birthday_person?step=2");
+    open(true);
   };
 
   return (
@@ -157,7 +160,12 @@ const Registration = () => {
           </div>
 
           <div className="px-4 flex items-center gap-4">
-            <input type="radio" id="terms" onChange={handleInputChange} />
+            <input
+              type="radio"
+              id="terms"
+              onChange={handleInputChange}
+              className=" cursor-pointer"
+            />
             <p className={`text-xs text-white`}>
               I accept Terms & Conditions and Privacy Policy of Mondelez
               (Cadbury).
@@ -175,6 +183,7 @@ const Registration = () => {
               type="radio"
               required
               id="promotion"
+              className=" cursor-pointer"
               onChange={handleInputChange}
             />
             <p className="text-xs text-white">
@@ -197,6 +206,25 @@ const Registration = () => {
               Submit
             </button>
             <img src={YellowTone} className="w-5" alt="yellow-tone-image" />
+
+            <Modal
+              opened={opened}
+              onClose={close}
+              withCloseButton={false}
+              centered
+              size="auto"
+              padding="0"
+              overlayProps={{
+                color:
+                  theme.colorScheme === "dark"
+                    ? theme.colors.dark[9]
+                    : theme.colors.gray[2],
+                opacity: 0.55,
+                blur: 3,
+              }}
+            >
+              <OtpModal close={close} />
+            </Modal>
           </div>
         </form>
       </div>

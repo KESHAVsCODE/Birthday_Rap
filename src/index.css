@@ -14,6 +14,12 @@
   .sideBarItems {
     @apply py-6 border-b pr-4 text-white text-right text-lg font-gibson font-semibold tracking-wide;
   }
+  .otpBox {
+    @apply w-8 h-8 text-center font-gibson font-semibold text-white bg-purple rounded-md outline-none;
+  }
+  .errorBorder {
+    @apply outline outline-red-700;
+  }
 }
 @font-face {
   font-family: "Gibson";

@@ -12,7 +12,7 @@ const SideBar = ({ setSideBarVisible: { closeSideBar, sideBarRef } }) => {
     >
       <div
         ref={sideBarRef}
-        className="w-[60%] h-full ml-auto grid grid-rows-sideBarRows bg-center bg-cover"
+        className="w-[60%] h-full ml-auto grid grid-rows-sideBarRows bg-purple bg-center bg-cover"
         style={{ backgroundImage: `url(${BG})` }}
       >
         <div
