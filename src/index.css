@@ -45,6 +45,11 @@
 
   ::-webkit-scrollbar-thumb:hover {
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+    width: 0.5em;
+  }
 }
 @font-face {
   font-family: "Gibson";

@@ -61,11 +61,9 @@ const OtpModal = ({ close }) => {
   };
   const handleInputChange = (e) => {
     const { id, value } = e.target;
-
-    console.log(value);
-    if (!/^[0-9]+$/.test(value)) {
-      return;
-    }
+    // if (key !== 8 && !/^[0-9]+$/.test(value)) {
+    //   return;
+    // }
     setInputOtp({ ...inputOtp, [id]: value });
   };
 
@@ -85,7 +83,7 @@ const OtpModal = ({ close }) => {
         Enter OTP
       </h3>
 
-      <ul className="flex gap-3" onChange={handleInputChange}>
+      <ul className="flex gap-3">
         <li>
           <input
             onChange={handleInputChange}
@@ -98,6 +96,7 @@ const OtpModal = ({ close }) => {
         </li>
         <li>
           <input
+            onChange={handleInputChange}
             type="text"
             id="digit2"
             value={digit2}
@@ -107,6 +106,7 @@ const OtpModal = ({ close }) => {
         </li>
         <li>
           <input
+            onChange={handleInputChange}
             type="text"
             id="digit3"
             value={digit3}
@@ -116,6 +116,7 @@ const OtpModal = ({ close }) => {
         </li>
         <li>
           <input
+            onChange={handleInputChange}
             type="text"
             id="digit4"
             value={digit4}
