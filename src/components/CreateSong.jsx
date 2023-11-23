@@ -48,7 +48,7 @@ const CreateSong = () => {
   };
   return (
     <section className="h-[90vh] mx-auto grid  grid-rows-sideBarRows">
-      <p className="pt-4  headingText place-self-center">
+      <p className="pt-6  headingText place-self-center">
         Your song&rsquo;s lyrics are ready!
       </p>
 
@@ -58,13 +58,8 @@ const CreateSong = () => {
         cols="30"
         value={songLyrics}
         rows="10"
-        className="text-lg p-4 rounded-3xl outline-none"
+        className=" text-lg p-4 rounded-3xl outline-none"
       ></textarea>
-      {/* <input
-        type="text"
-        className=" rounded-3xl outline-none"
-        onChange={(e) => setMessage(e.target.value)}
-      /> */}
 
       <button
         className="defaultButton self-center justify-self-center"

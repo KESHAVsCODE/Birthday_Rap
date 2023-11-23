@@ -59,7 +59,7 @@ const BirthdayPersonDetailsForm = () => {
 
       <div className="-mt-10">
         <form id="register" className="h-full grid items-center">
-          <div className="max-h-[45vh] pb-4 grid gap-6 overflow-y-auto">
+          <div className="max-h-[45vh] px-2 pb-4 grid gap-6 overflow-y-auto">
             {/* =========================================== */}
             <div>
               <p className="inputLabelText">

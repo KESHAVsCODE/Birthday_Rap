@@ -76,7 +76,7 @@ const BirthdayPerson = () => {
               name="name"
               value={birthdayPersonDetails.name}
               placeholder="xxxx xxxx xxxx"
-              className="inputBox font-gibson font-semibold"
+              className="inputBox font-gibson font-semibold text-purple"
               onChange={handleInputChange}
             />
             {nameError && (
@@ -102,7 +102,7 @@ const BirthdayPerson = () => {
               <select
                 id="gender"
                 onChange={handleInputChange}
-                className="inputBox font-gibson font-semibold appearance-none"
+                className="inputBox font-gibson font-semibold appearance-none text-purple"
               >
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
