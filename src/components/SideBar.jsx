@@ -8,7 +8,7 @@ const SideBar = ({ setSideBarVisible: { closeSideBar, sideBarRef } }) => {
   return (
     <section
       name="sidebar"
-      className={`w-full h-screen fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 backdrop-blur`}
+      className={`w-full h-screen fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 backdrop-blur z-[999]`}
     >
       <div
         ref={sideBarRef}

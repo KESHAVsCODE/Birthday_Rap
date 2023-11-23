@@ -3,7 +3,7 @@ import progressBarStepImages from "../assets/Progress_Bar/progressBarImages";
 
 const ProgressBar = () => {
   const [searchParams] = useSearchParams();
-  const step = parseInt(searchParams.get("step")) - 1 || 0;
+  const step = parseInt(searchParams.get("step")) || 0;
 
   return (
     <div className="flex justify-center p-4 absolute top-[100%] left-0 right-0">

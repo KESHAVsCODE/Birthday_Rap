@@ -44,14 +44,53 @@ const CreateSong = () => {
     fetchChatGPT();
   };
   return (
-    <div className="mt-10">
-      <input type="text" onChange={(e) => setMessage(e.target.value)} />
-      <button className="bg-red-500" onClick={handleSubmitClick}>
-        submit
+    <section className="h-[90vh] mx-auto grid  grid-rows-sideBarRows">
+      <p className="pt-4 text-white place-self-center jus font-medium">
+        Your song&rsquo;s lyrics are ready!
+      </p>
+
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        value={songLyrics}
+        rows="10"
+        className="text-lg p-4 rounded-3xl outline-none"
+      ></textarea>
+      {/* <input
+        type="text"
+        className=" rounded-3xl outline-none"
+        onChange={(e) => setMessage(e.target.value)}
+      /> */}
+
+      <button
+        className="self-center justify-self-center px-8 py-2 font-bold rounded-lg bg-yellow text-purple  cursor-pointer"
+        onClick={handleSubmitClick}
+      >
+        Create Song
       </button>
-      <p className="text-white">Response:{response}</p>
-    </div>
+    </section>
   );
 };
+
+const songLyrics = `Happy birthday, cheers to twenty-five shining years,
+Celebrating you, spreading joy and cheers.
+May your day be filled with laughter and delight,
+Wishing you success, everything feels just right.
+Blow out the candles, make a wish profound,
+In your presence, happiness is always found.
+A quarter-century of life, oh what a feat,
+May your happiness and dreams always meet.
+You're a star, with a future so bright,
+Happy 25th birthday, bask in the light.
+Here's to friendship, and adventures new,
+To the amazing person that is you.
+Cake, balloons, and joy all around,
+For the guy who makes happiness abound.
+A milestone reached, a journey to cherish,
+Wishing you joy that will never perish.
+Twenty-five years of spreading cheer,
+Happy birthday, may it be a fantastic year!
+`;
 
 export default CreateSong;
