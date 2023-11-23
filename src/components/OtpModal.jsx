@@ -61,7 +61,9 @@ const OtpModal = ({ close }) => {
   };
   const handleInputChange = (e) => {
     const { id, value } = e.target;
-    if (!/^(?!0)[0-9]*$/.test(value)) {
+
+    console.log(value);
+    if (!/^[0-9]+$/.test(value)) {
       return;
     }
     setInputOtp({ ...inputOtp, [id]: value });
@@ -79,7 +81,7 @@ const OtpModal = ({ close }) => {
 
   return (
     <div className="p-6 rounded-lg">
-      <h3 className="py-2 text-lg text-center tracking-wide font-gibson font-bold text-purple">
+      <h3 className="pb-2 text-lg text-center tracking-wide font-gibson font-semibold text-purple">
         Enter OTP
       </h3>
 
@@ -138,10 +140,7 @@ const OtpModal = ({ close }) => {
       </p>
 
       <div className="flex justify-center">
-        <button
-          onClick={handleOtpSubmitClick}
-          className="px-6 py-1 font-bold rounded-lg bg-yellow text-purple  cursor-pointer"
-        >
+        <button onClick={handleOtpSubmitClick} className="defaultButton">
           Submit
         </button>
       </div>

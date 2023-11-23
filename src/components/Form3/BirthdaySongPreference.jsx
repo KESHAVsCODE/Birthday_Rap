@@ -13,6 +13,7 @@ const BirthdaySongPreference = () => {
     useContext(UserContext);
 
   const navigate = useNavigate();
+
   const [musicPreferences, setMusicPreferences] = useState({
     mood: "calm",
     genre: "pop",
@@ -23,14 +24,19 @@ const BirthdaySongPreference = () => {
     setUserPreferencesData({ ...userPreferencesData, ...musicPreferences });
     navigate("/birthday_person_interests?step=4");
   };
+
   return (
     <section className="h-[90vh] mx-auto grid grid-rows-customRows">
       <div className="max-w-[350px] mx-auto pt-10 grid justify-items-center">
-        <p className="px-10 text-center text-white font-medium">
+        <p className="px-10 headingText">
           What would you like their song&rsquo;s vibe to be?
         </p>
         <div className="w-full -mt-4  flex justify-between items-center">
-          <img src={PurpleMusicTone} className="w-12 " alt="music-tone-image" />
+          <img
+            src={PurpleMusicTone}
+            className="w-12 self-end z-10 mb-14 "
+            alt="music-tone-image"
+          />
           <img
             src={Headphone}
             className="max-w-[260px]"
@@ -49,9 +55,7 @@ const BirthdaySongPreference = () => {
         onClick={handleProceedClick}
         className="absolute left-0 right-0 bottom-0 flex justify-center pt-4 pb-8 bg-purple bg-opacity-5 backdrop-blur-sm"
       >
-        <button className="w-max py-3 px-8 text-xl font-bold rounded-lg bg-yellow text-purple ">
-          Proceed
-        </button>
+        <button className="defaultButton py-3 text-xl">Proceed</button>
       </div>
     </section>
   );

@@ -17,9 +17,7 @@ const SongVibeSelector = ({ musicPreferences, setMusicPreferences }) => {
     <section className="-mt-10 overflow-y-scroll pb-20">
       {/* ============================================= */}
       <div className="mb-8 border border-yellow rounded-lg overflow-hidden">
-        <h2 className="py-2 text-center text-lg font-gibson font-semibold text-purple   bg-yellow ">
-          Mood
-        </h2>
+        <h2 className="py-2 headingText text-purple bg-yellow">Mood</h2>
         <div className="px-4 py-6 flex gap-1 items-center justify-between ">
           {MoodType.map((item) => {
             return (
@@ -49,9 +47,7 @@ const SongVibeSelector = ({ musicPreferences, setMusicPreferences }) => {
 
       {/* ==================================== */}
       <div className="mb-8 border border-yellow rounded-lg overflow-hidden">
-        <h2 className="py-2 text-center text-lg font-gibson font-semibold text-purple bg-yellow ">
-          Genre
-        </h2>
+        <h2 className="py-2 headingText text-purple bg-yellow">Genre</h2>
         <div className="px-4 py-6 flex gap-1 items-center justify-between">
           {GenreType.map((item) => {
             return (
@@ -80,7 +76,7 @@ const SongVibeSelector = ({ musicPreferences, setMusicPreferences }) => {
       </div>
       {/* ==================================== */}
       <div className="mb-8 border border-yellow rounded-lg overflow-hidden">
-        <h2 className="py-2 text-center text-lg font-gibson font-semibold text-purple bg-yellow ">
+        <h2 className="py-2 headingText text-purple bg-yellow">
           Singer&rsquo;s voice
         </h2>
         <div className="px-4 py-6 flex gap-1 items-center justify-around">

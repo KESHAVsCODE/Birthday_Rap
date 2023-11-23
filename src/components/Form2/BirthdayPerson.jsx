@@ -48,9 +48,7 @@ const BirthdayPerson = () => {
   return (
     <section className="mx-auto">
       <div className="max-w-[350px] mx-auto pt-10 grid justify-items-center">
-        <p className="text-white font-medium">
-          Tell us about your loved one...
-        </p>
+        <p className="headingText">Tell us about your loved one...</p>
         <div className="w-full flex justify-between items-center">
           <img
             src={PartyPoppers}
@@ -71,16 +69,14 @@ const BirthdayPerson = () => {
           {/* ========================================= */}
 
           <div>
-            <p className="text-center text-white tracking-wide font-dairyMilk">
-              Their name
-            </p>
+            <p className="inputLabelText">Their name</p>
             <input
               type="text"
               id="birthdayPersonName"
               name="name"
               value={birthdayPersonDetails.name}
               placeholder="xxxx xxxx xxxx"
-              className={`w-full text-sm text-purple font-gibson font-semibold  px-4 py-2 rounded-3xl outline-none`}
+              className="inputBox font-gibson font-semibold"
               onChange={handleInputChange}
             />
             {nameError && (
@@ -93,7 +89,7 @@ const BirthdayPerson = () => {
 
           {/* ========================================= */}
           <div>
-            <p className="text-center text-white tracking-wide font-dairyMilk">
+            <p className="inputLabelText">
               How old they&rsquo;ll be this birthday
             </p>
             <AgePicker age={age} setAge={setAge} />
@@ -101,14 +97,12 @@ const BirthdayPerson = () => {
 
           {/* ========================================= */}
           <div>
-            <p className="text-center text-white tracking-wide font-dairyMilk">
-              Gender
-            </p>
+            <p className="inputLabelText">Gender</p>
             <div className="relative">
               <select
                 id="gender"
                 onChange={handleInputChange}
-                className="w-full text-sm text-purple px-4 py-2 font-gibson font-semibold text-[]  rounded-3xl outline-none appearance-none"
+                className="inputBox font-gibson font-semibold appearance-none"
               >
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -122,13 +116,13 @@ const BirthdayPerson = () => {
           <div className="pt-4 flex justify-center relative">
             <img
               src={PurpleTone}
-              className="w-5 absolute left-10"
+              className="h-12 absolute left-10"
               alt="yellow-tone-image"
             />
             <button
               type="submit"
               onClick={handleProceedClick}
-              className="py-[6px] px-8 font-bold rounded-lg bg-yellow text-purple "
+              className="defaultButton"
             >
               Proceed
             </button>

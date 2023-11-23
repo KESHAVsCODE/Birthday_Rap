@@ -112,7 +112,7 @@ const Registration = () => {
               maxLength={10}
               value={user.phone}
               placeholder="Phone Number"
-              className={`w-full text-sm px-4 py-2 rounded-3xl outline-none`}
+              className="inputBox"
               onChange={handleInputChange}
             />
             {userError.phoneError && (
@@ -130,7 +130,7 @@ const Registration = () => {
               name="username"
               value={user.name}
               placeholder="Full Name"
-              className={`w-full text-sm px-4 py-2 rounded-3xl outline-none`}
+              className="inputBox"
               onChange={handleInputChange}
             />
             {userError.nameError && (
@@ -147,8 +147,8 @@ const Registration = () => {
               id="email"
               name="email"
               value={user.email}
-              placeholder={userError.emailError || "Email ID"}
-              className={`w-full text-sm px-4 py-2 rounded-3xl outline-none`}
+              placeholder="Email ID"
+              className="inputBox"
               onChange={handleInputChange}
             />
             {userError.emailError && (
@@ -164,7 +164,7 @@ const Registration = () => {
               type="radio"
               id="terms"
               onChange={handleInputChange}
-              className=" cursor-pointer"
+              className="cursor-pointer"
             />
             <p className={`text-xs text-white`}>
               I accept Terms & Conditions and Privacy Policy of Mondelez
@@ -201,7 +201,7 @@ const Registration = () => {
             <button
               type="submit"
               onClick={handleSubmitClick}
-              className="px-8 font-bold rounded-lg bg-yellow text-purple  cursor-pointer"
+              className="self-start defaultButton"
             >
               Submit
             </button>

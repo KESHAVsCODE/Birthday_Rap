@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+/* eslint-disable react/prop-types */
 const AgePicker = ({ age, setAge }) => {
   const handleAgeChangeClick = (e) => {
     const id = e.target.id;
@@ -12,7 +11,7 @@ const AgePicker = ({ age, setAge }) => {
   };
 
   return (
-    <div className="text-[#340073] flex bg-white px-4 py-2 rounded-3xl justify-between">
+    <div className="text-purple flex bg-white px-4 py-2 rounded-3xl justify-between">
       <div className="font-gibson text-sm font-semibold">{age} Years</div>
       <div onClick={handleAgeChangeClick} className="flex items-center gap-3">
         <i id="increment" className="fa-solid fa-caret-up"></i>

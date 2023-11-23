@@ -1,9 +1,12 @@
 import UserContext from "../context/UserContextProvider";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
+import { useNavigate } from "react-router";
 const CreateSong = () => {
   const { userPreferencesData, setUserPreferencesData } =
     useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const [message, setMessage] = useState("");
 
@@ -45,7 +48,7 @@ const CreateSong = () => {
   };
   return (
     <section className="h-[90vh] mx-auto grid  grid-rows-sideBarRows">
-      <p className="pt-4 text-white place-self-center jus font-medium">
+      <p className="pt-4  headingText place-self-center">
         Your song&rsquo;s lyrics are ready!
       </p>
 
@@ -64,8 +67,8 @@ const CreateSong = () => {
       /> */}
 
       <button
-        className="self-center justify-self-center px-8 py-2 font-bold rounded-lg bg-yellow text-purple  cursor-pointer"
-        onClick={handleSubmitClick}
+        className="defaultButton self-center justify-self-center"
+        onClick={() => navigate("/play_song?step=6")}
       >
         Create Song
       </button>
