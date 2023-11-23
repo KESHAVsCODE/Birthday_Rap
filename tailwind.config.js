@@ -22,6 +22,7 @@ export default {
       gridTemplateRows: {
         customRows: "3fr 7fr",
         oneByFour: "4fr 1fr",
+        sideBarRows: "1fr 8fr 1fr",
       },
     },
   },

@@ -16,6 +16,7 @@ import CelebrationsHashtagBG from "./CelebrationsHashtagBG.png";
 import SideBarBG from "./SideBarBG.png";
 import CrossWhite from "./CrossWhite.png";
 import CrossYellow from "./CrossYellow.png";
+import MDLZ_SMR_Logo from "./MDLZ_SMR_Logo.png";
 
 export {
   BG,
@@ -36,4 +37,5 @@ export {
   SideBarBG,
   CrossWhite,
   CrossYellow,
+  MDLZ_SMR_Logo,
 };

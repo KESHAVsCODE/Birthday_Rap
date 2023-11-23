@@ -11,6 +11,9 @@
   .errorSign {
     @apply text-base font-bold italic text-error;
   }
+  .sideBarItems {
+    @apply py-6 border-b pr-4 text-white text-right text-lg font-gibson font-semibold tracking-wide;
+  }
 }
 @font-face {
   font-family: "Gibson";
