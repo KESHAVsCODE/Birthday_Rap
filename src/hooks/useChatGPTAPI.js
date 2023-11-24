@@ -1,51 +1,62 @@
 /* eslint-disable no-undef */
 import { useEffect, useState } from "react";
+import generateLyricsPromptMessage from "../functions/generateLyricsPromptMessage";
+import { useContext } from "react";
+import UserContext from "../context/UserContextProvider";
+const useChatGPTAPI = () => {
+  const { userPreferencesData, setUserPreferencesData } =
+    useContext(UserContext);
 
-const useChatGPTAPI = (message) => {
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
 
   const [response, setResponse] = useState("");
 
-  useEffect(() => {
+  const fetchChatGPT = async () => {
     const apiUrl = "https://api.openai.com/v1/chat/completions";
     const apiKey = import.meta.env.VITE_REACT_APP_GPT_KEY; // Replace with your actual API key
-    const fetchChatGPT = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(apiUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${apiKey}`,
-          },
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: message }],
-          }),
-        });
+    const message = generateLyricsPromptMessage(userPreferencesData);
+    try {
+      setLoading(true);
+      setError("");
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: message }],
+        }),
+      });
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (!response.ok) {
-          console.log("------", data.error.message);
-          throw new Error(data?.error?.message);
-        }
-        console.log(data?.choices[0]?.message?.content);
-        setResponse(data?.choices[0]?.message?.content);
-        setLoading(false);
-        setError("");
-      } catch (error) {
-        console.error("Error fetching data:", error.message);
-        setError(error.message);
-        setLoading(false);
+      if (!response.ok) {
+        throw new Error(data?.error?.message);
       }
-    };
+      console.log(data);
+      setResponse(data?.choices[0]?.message?.content);
+      setLoading(false);
+      setError("");
+      setUserPreferencesData({
+        ...userPreferencesData,
+        songLyrics: response,
+      });
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+      setError(error.message);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchChatGPT();
   }, []);
 
-  return { loading, response, error };
+  return { loading, response, error, fetchChatGPT };
 };
 
 export default useChatGPTAPI;

@@ -1,25 +1,16 @@
-import UserContext from "../context/UserContextProvider";
-import { useEffect } from "react";
-
 import useChatGPTAPI from "../hooks/useChatGPTAPI";
 
-import generateLyricsPromptMessage from "../functions/generateLyricsPromptMessage";
-import { useContext } from "react";
 import { useNavigate } from "react-router";
 
 const CreateSong = () => {
-  const { userPreferencesData, setUserPreferencesData } =
-    useContext(UserContext);
-
   const navigate = useNavigate();
 
-  const { loading, response, error } = useChatGPTAPI(
-    generateLyricsPromptMessage(userPreferencesData)
-  );
+  const { loading, response, error, fetchChatGPT } = useChatGPTAPI();
 
-  useEffect(() => {
-    setUserPreferencesData({ ...userPreferencesData, songLyrics: response });
-  }, [response, loading]);
+  const handleRecreateLyricsClick = () => {
+    if (loading) return;
+    fetchChatGPT();
+  };
 
   if (loading)
     return (
@@ -27,8 +18,6 @@ const CreateSong = () => {
         Your song&rsquo;s lyrics are preparing...
       </p>
     );
-
-  // console.log("this is an error", typeof error);
 
   if (error)
     return (
@@ -55,12 +44,20 @@ const CreateSong = () => {
         ></textarea>
       </div>
 
-      <button
-        className="defaultButton self-center justify-self-center"
-        onClick={() => navigate("/play_song?step=6")}
-      >
-        Create Song
-      </button>
+      <div className="flex justify-around items-center">
+        <button
+          className="defaultButton bg-white bg-opacity-40 text-white"
+          onClick={handleRecreateLyricsClick}
+        >
+          Recreate Lyrics
+        </button>
+        <button
+          className="defaultButton"
+          onClick={() => navigate("/play_song?step=6")}
+        >
+          Create Song
+        </button>
+      </div>
     </section>
   );
 };

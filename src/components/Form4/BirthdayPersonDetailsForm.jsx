@@ -20,9 +20,10 @@ const BirthdayPersonDetailsForm = () => {
     smile: "",
     movie: "",
     sport: "",
+    language: "English",
   });
 
-  const { petname, angry, funniest, smile, movie, sport } =
+  const { petname, angry, funniest, smile, movie, sport, language } =
     birthdayPersonInterests;
 
   const handleInputChange = (e) => {
@@ -35,7 +36,10 @@ const BirthdayPersonDetailsForm = () => {
       ...userPreferencesData,
       ...birthdayPersonInterests,
     });
-    navigate("/create_song?step=5");
+
+    if (petname && angry && funniest && smile && movie && sport) {
+      navigate("/create_song?step=5");
+    }
   };
 
   return (
@@ -58,7 +62,10 @@ const BirthdayPersonDetailsForm = () => {
       </div>
 
       <div className="-mt-10">
-        <form id="register" className="h-full grid items-center">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="h-full grid items-center"
+        >
           <div className="max-h-[45vh] px-2 pb-4 grid gap-6 overflow-y-auto">
             {/* =========================================== */}
             <div>
@@ -68,7 +75,7 @@ const BirthdayPersonDetailsForm = () => {
 
               <input
                 type="text"
-                required
+                required={true}
                 id="petname"
                 value={petname}
                 placeholder="xxxx xxxx xxxx"
@@ -82,7 +89,7 @@ const BirthdayPersonDetailsForm = () => {
               <p className="inputLabelText">What makes them angry?</p>
               <input
                 type="text"
-                required
+                required={true}
                 id="angry"
                 value={angry}
                 placeholder="xxxx xxxx xxxx"
@@ -98,7 +105,7 @@ const BirthdayPersonDetailsForm = () => {
               </p>
               <input
                 type="text"
-                required
+                required={true}
                 id="funniest"
                 value={funniest}
                 placeholder="xxxx xxxx xxxx"
@@ -112,7 +119,7 @@ const BirthdayPersonDetailsForm = () => {
               <p className="inputLabelText">What makes them smile?</p>
               <input
                 type="text"
-                required
+                required={true}
                 id="smile"
                 value={smile}
                 placeholder="xxxx xxxx xxxx"
@@ -126,7 +133,7 @@ const BirthdayPersonDetailsForm = () => {
               <p className="inputLabelText">What is the favorite movie?</p>
               <input
                 type="text"
-                required
+                required={true}
                 id="movie"
                 value={movie}
                 placeholder="xxxx xxxx xxxx"
@@ -140,13 +147,27 @@ const BirthdayPersonDetailsForm = () => {
               <p className="inputLabelText">Their favorite sport.</p>
               <input
                 type="text"
-                required
+                required={true}
                 id="sport"
                 value={sport}
                 placeholder="xxxx xxxx xxxx"
                 className={`inputBox`}
                 onChange={handleInputChange}
               />
+            </div>
+
+            <div className="relative">
+              <p className="inputLabelText">Select language of the lyrics</p>
+              <select
+                id="language"
+                value={language}
+                onChange={handleInputChange}
+                className="inputBox font-gibson font-semibold appearance-none text-purple"
+              >
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+              </select>
+              <i className=" fa-solid fa-caret-down text-purple absolute right-3 top-1/2 -translate-x-1/2 translate-y-1"></i>
             </div>
           </div>
 
