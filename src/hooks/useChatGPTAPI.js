@@ -10,7 +10,7 @@ const useChatGPTAPI = (message) => {
 
   useEffect(() => {
     const apiUrl = "https://api.openai.com/v1/chat/completions";
-    const apiKey = "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"; // Replace with your actual API key
+    const apiKey = import.meta.env.VITE_REACT_APP_GPT_KEY; // Replace with your actual API key
     const fetchChatGPT = async () => {
       try {
         setLoading(true);
