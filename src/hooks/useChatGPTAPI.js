@@ -25,9 +25,11 @@ const useChatGPTAPI = (message) => {
             messages: [{ role: "user", content: message }],
           }),
         });
+
         const data = await response.json();
 
         if (!response.ok) {
+          console.log("------", data.error.message);
           throw new Error(data?.error?.message);
         }
         console.log(data?.choices[0]?.message?.content);
@@ -35,8 +37,8 @@ const useChatGPTAPI = (message) => {
         setLoading(false);
         setError("");
       } catch (error) {
-        console.error("Error fetching data:", error);
-        setError(error);
+        console.error("Error fetching data:", error.message);
+        setError(error.message);
         setLoading(false);
       }
     };

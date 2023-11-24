@@ -23,13 +23,19 @@ const CreateSong = () => {
 
   if (loading)
     return (
-      <p className="pt-8 headingText place-self-center">
+      <p className="max-w-[350px] pt-8 headingText place-self-center">
         Your song&rsquo;s lyrics are preparing...
       </p>
     );
 
+  // console.log("this is an error", typeof error);
+
   if (error)
-    return <p className="pt-8  headingText place-self-center">{error}</p>;
+    return (
+      <p className="pt-8  headingText place-self-center">
+        {error && "Something went wrong!"}
+      </p>
+    );
 
   return (
     <section className="h-[90vh] mx-auto grid  grid-rows-sideBarRows">
