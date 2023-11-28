@@ -39,10 +39,13 @@ const BirthdayPersonDetailsForm = () => {
       ...birthdayPersonInterests,
     });
 
-    if (petname && angry && funniest && smile && movie && sport) {
+    if (petname && angry && funniest) {
       navigate("/create_song?step=5");
     }
+    //&& answerMore && smile && movie && sport
   };
+
+  console.log(answerMore);
 
   return (
     <section className="h-full w-full pt-10">
@@ -191,10 +194,13 @@ const BirthdayPersonDetailsForm = () => {
 
           <div className="h-[20%] flex px-2 justify-around items-center">
             <button
-              onClick={() => setAnswerMore((prev) => !prev)}
+              onClick={(e) => {
+                e.preventDefault();
+                setAnswerMore((prev) => !prev);
+              }}
               className="defaultButton px-4 text-white bg-white bg-opacity-40"
             >
-              Answer More
+              Answer {answerMore ? "Less" : "More"}
             </button>
 
             <button

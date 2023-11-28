@@ -40,11 +40,11 @@ const generateLyricsPromptMessage = (data) => {
 
                 ${funniest} makes ${objective} funniest.
                 
-                ${smile} makes ${objective} special.
+                ${smile ? `${smile} makes ${objective} special.` : ""};
+
+                ${movie ? `${movie} movie ${subjective} likes the most.` : ""}
                 
-                ${movie} movie ${subjective} likes the most.
-                
-                ${sport} sports ${subjective} likes the most.
+                ${sport ? `${sport} sports ${subjective} likes the most.` : ""}
                 
                 Ensure that "Happy birthday" is mentioned at least twice in the lyrics, and it should rhyme. The lyrics should use simple, short, and easy to pronounce words as much as possible.
                 
