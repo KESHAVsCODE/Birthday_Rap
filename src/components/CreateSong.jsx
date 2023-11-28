@@ -44,13 +44,13 @@ const CreateSong = () => {
 
       <div className="h-[15%] px-2 flex justify-between items-center flex-wrap">
         <button
-          className="defaultButton  bg-white bg-opacity-40 text-white"
+          className="defaultButton px-4 bg-white bg-opacity-40 text-white"
           onClick={handleRecreateLyricsClick}
         >
           Recreate Lyrics
         </button>
         <button
-          className="defaultButton "
+          className="defaultButton px-4"
           onClick={() => navigate("/play_song?step=6")}
         >
           Create Song

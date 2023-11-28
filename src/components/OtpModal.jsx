@@ -35,7 +35,8 @@ const OtpModal = ({ close }) => {
 
   useEffect(() => {
     getRandomFourDigitOtp();
-    inputOtpRef.current[0].focus();
+    const timeId = setTimeout(() => {}, 100);
+    return () => clearTimeout(timeId);
   }, []);
 
   const handleOtpSubmitClick = () => {
