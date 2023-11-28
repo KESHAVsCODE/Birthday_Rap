@@ -14,25 +14,23 @@ const CreateSong = () => {
 
   if (loading)
     return (
-      <p className="max-w-[350px] pt-8 headingText place-self-center">
+      <p className="max-w-[350px] pt-10 headingText place-self-center">
         Your song&rsquo;s lyrics are preparing...
       </p>
     );
 
   if (error)
     return (
-      <p className="pt-8  headingText place-self-center">
+      <p className="pt-10  headingText place-self-center">
         {error && "Something went wrong!"}
       </p>
     );
 
   return (
-    <section className="h-[90vh] mx-auto grid  grid-rows-sideBarRows">
-      <p className="pt-6  headingText place-self-center">
-        Your song&rsquo;s lyrics are ready!
-      </p>
+    <section className="h-full pt-10 flex flex-col justify-between">
+      <p className="h-[10%] headingText">Your song&rsquo;s lyrics are ready!</p>
 
-      <div className="p-2 bg-white rounded-3xl">
+      <div className="h-[75%] p-2 bg-white rounded-3xl">
         <textarea
           name=""
           id=""
@@ -44,15 +42,15 @@ const CreateSong = () => {
         ></textarea>
       </div>
 
-      <div className="flex justify-around items-center">
+      <div className="h-[15%] px-2 flex justify-between items-center flex-wrap">
         <button
-          className="defaultButton bg-white bg-opacity-40 text-white"
+          className="defaultButton px-4  bg-white bg-opacity-40 text-white"
           onClick={handleRecreateLyricsClick}
         >
           Recreate Lyrics
         </button>
         <button
-          className="defaultButton"
+          className="defaultButton px-4"
           onClick={() => navigate("/play_song?step=6")}
         >
           Create Song

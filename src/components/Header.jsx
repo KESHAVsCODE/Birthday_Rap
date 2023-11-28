@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="h-[10vh] px-6 bg-purple flex items-center relative">
+      <header className="h-[10%] px-6 bg-purple flex items-center relative">
         <div>
           <img src={CadburyLogo} className="w-20" alt="cadbury-logo" />
         </div>

@@ -85,23 +85,22 @@ const Registration = () => {
   };
 
   return (
-    <section name="registration">
-      <div className="-mt-[26px] flex justify-center">
+    <section name="registration" className="h-full w-full">
+      <div className="h-[40%]">
         <img
           src={Celebrations}
-          className="w-[340px]"
+          className="block h-full mx-auto"
           alt="cadbury-celebration-img"
         />
       </div>
-      <div className="mx-auto max-w-[350px] pb-6 -mt-[70px]">
-        <p className="pt-1 pb-2 text-center text-white tracking-wide font-dairyMilk">
+      <div className="h-[60%] -mt-10 ">
+        <label htmlFor="register" className="inputLabelText ">
           Register to create
-        </p>
-
+        </label>
         <form
           id="register"
           onSubmit={(e) => e.preventDefault()}
-          className="grid gap-4"
+          className="grid gap-6"
           noValidate
         >
           <div>
@@ -192,21 +191,26 @@ const Registration = () => {
             </p>
           </div>
 
-          <div className="flex justify-between">
+          <div className="relative flex justify-center items-center ">
             <img
               src={PartyPoppers}
-              className="w-10"
+              className="w-12 absolute left-0 top-[30%]"
               alt="party-poppers-image"
             />
+
+            <img
+              src={YellowTone}
+              className="h-12 absolute right-0 bottom-[50%]"
+              alt="yellow-tone-image"
+            />
+
             <button
               type="submit"
               onClick={handleSubmitClick}
-              className="self-start defaultButton"
+              className="defaultButton"
             >
               Submit
             </button>
-            <img src={YellowTone} className="w-5" alt="yellow-tone-image" />
-
             <Modal
               opened={opened}
               onClose={close}

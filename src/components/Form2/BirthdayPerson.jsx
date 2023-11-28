@@ -46,7 +46,7 @@ const BirthdayPerson = () => {
   };
 
   return (
-    <section className="mx-auto">
+    <section className="h-full w-full">
       <div className="max-w-[350px] mx-auto pt-10 grid justify-items-center">
         <p className="headingText">Tell us about your loved one...</p>
         <div className="w-full flex justify-between items-center">
@@ -63,13 +63,15 @@ const BirthdayPerson = () => {
       <div>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="grid gap-4"
+          className="grid gap-6"
           noValidate
         >
           {/* ========================================= */}
 
           <div>
-            <p className="inputLabelText">Their name</p>
+            <label htmlFor="birthdayPersonName" className="inputLabelText">
+              Their name
+            </label>
             <input
               type="text"
               id="birthdayPersonName"
@@ -89,15 +91,17 @@ const BirthdayPerson = () => {
 
           {/* ========================================= */}
           <div>
-            <p className="inputLabelText">
+            <label className="inputLabelText">
               How old they&rsquo;ll be this birthday
-            </p>
+            </label>
             <AgePicker age={age} setAge={setAge} />
           </div>
 
           {/* ========================================= */}
           <div>
-            <p className="inputLabelText">Gender</p>
+            <label htmlFor="gender" className="inputLabelText">
+              Gender
+            </label>
             <div className="relative">
               <select
                 id="gender"
@@ -113,10 +117,10 @@ const BirthdayPerson = () => {
           </div>
 
           {/* ========================================= */}
-          <div className="pt-4 flex justify-center relative">
+          <div className="flex justify-center relative">
             <img
               src={PurpleTone}
-              className="h-12 absolute left-10"
+              className="h-14 absolute left-5 top-1 "
               alt="yellow-tone-image"
             />
             <button

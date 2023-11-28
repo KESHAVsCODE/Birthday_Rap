@@ -14,11 +14,11 @@ const SongVibeSelector = ({ musicPreferences, setMusicPreferences }) => {
   };
 
   return (
-    <section className="-mt-10 overflow-y-scroll pb-20 no-scrollbar">
+    <section className="-mt-10 overflow-y-scroll pb-32 no-scrollbar">
       {/* ============================================= */}
       <div className="mb-8 border border-yellow rounded-lg overflow-hidden">
         <h2 className="py-2 headingText text-purple bg-yellow">Mood</h2>
-        <div className="px-4 py-6 flex gap-1 items-center justify-between ">
+        <div className="p-4 flex gap-1 items-center justify-between ">
           {MoodType.map((item) => {
             return (
               <div key={item.type}>
@@ -48,7 +48,7 @@ const SongVibeSelector = ({ musicPreferences, setMusicPreferences }) => {
       {/* ==================================== */}
       <div className="mb-8 border border-yellow rounded-lg overflow-hidden">
         <h2 className="py-2 headingText text-purple bg-yellow">Genre</h2>
-        <div className="px-4 py-6 flex gap-1 items-center justify-between">
+        <div className="p-4 flex gap-1 items-center justify-between">
           {GenreType.map((item) => {
             return (
               <div key={item.type} id={item.type}>
@@ -79,7 +79,7 @@ const SongVibeSelector = ({ musicPreferences, setMusicPreferences }) => {
         <h2 className="py-2 headingText text-purple bg-yellow">
           Singer&rsquo;s voice
         </h2>
-        <div className="px-4 py-6 flex gap-1 items-center justify-around">
+        <div className="p-4 flex gap-1 items-center justify-around">
           {SingerType.map((item) => {
             return (
               <div key={item.type} id={item.type}>

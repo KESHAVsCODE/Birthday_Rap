@@ -14,7 +14,7 @@ const CustomLayout = () => {
   return (
     <>
       <Header />
-      <main className="px-4 h-[90vh] max-w-[400px] mx-auto">
+      <main className="px-4 h-[90%] max-w-[400px] mx-auto">
         <Outlet />
       </main>
     </>
@@ -25,7 +25,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div
-        className="min-h-[100vh] bg-cover bg-no-repeat bg-center bg-purple relative"
+        className="h-[100%] bg-cover bg-no-repeat bg-center bg-purple relative"
         style={{ backgroundImage: `url(${BG})` }}
       >
         <Routes>

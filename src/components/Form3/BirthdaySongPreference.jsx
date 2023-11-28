@@ -26,12 +26,12 @@ const BirthdaySongPreference = () => {
   };
 
   return (
-    <section className="h-[90vh] mx-auto grid grid-rows-customRows">
+    <section className="h-full mx-auto grid grid-rows-customRows">
       <div className="max-w-[350px] mx-auto pt-10 grid justify-items-center">
         <p className="px-10 headingText">
           What would you like their song&rsquo;s vibe to be?
         </p>
-        <div className="w-full -mt-4  flex justify-between items-center">
+        <div className="w-full -mt-6 flex justify-between items-center">
           <img
             src={PurpleMusicTone}
             className="w-12 self-end z-10 mb-14 "
@@ -39,7 +39,7 @@ const BirthdaySongPreference = () => {
           />
           <img
             src={Headphone}
-            className="max-w-[260px]"
+            className="max-w-[250px]"
             alt="headphone-image"
           />
           <img src={Balloon2} className="w-12 pb-6" alt="balloon-image" />
@@ -53,9 +53,9 @@ const BirthdaySongPreference = () => {
 
       <div
         onClick={handleProceedClick}
-        className="absolute left-0 right-0 bottom-0 flex justify-center pt-4 pb-8 bg-purple bg-opacity-5 backdrop-blur-sm"
+        className="absolute left-0 right-0 bottom-0 pt-4 pb-4 flex justify-center bg-purple bg-opacity-5 backdrop-blur-sm"
       >
-        <button className="defaultButton py-3 text-xl">Proceed</button>
+        <button className="defaultButton">Proceed</button>
       </div>
     </section>
   );
