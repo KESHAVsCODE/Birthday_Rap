@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 const BirthdayPersonDetailsForm = () => {
   const navigate = useNavigate();
 
-  const [answerMore, setAnswerMore] = useState(true);
+  const [answerMore, setAnswerMore] = useState(false);
 
   const { userPreferencesData, setUserPreferencesData } =
     useContext(UserContext);
@@ -129,7 +129,7 @@ const BirthdayPersonDetailsForm = () => {
                   </label>
                   <input
                     type="text"
-                    required={true}
+                    required={answerMore && true}
                     id="smile"
                     value={smile}
                     placeholder="xxxx xxxx xxxx"
@@ -145,7 +145,7 @@ const BirthdayPersonDetailsForm = () => {
                   </label>
                   <input
                     type="text"
-                    required={true}
+                    required={answerMore && true}
                     id="movie"
                     value={movie}
                     placeholder="xxxx xxxx xxxx"
@@ -160,7 +160,7 @@ const BirthdayPersonDetailsForm = () => {
                   </label>
                   <input
                     type="text"
-                    required={true}
+                    required={answerMore && true}
                     id="sport"
                     value={sport}
                     placeholder="xxxx xxxx xxxx"
