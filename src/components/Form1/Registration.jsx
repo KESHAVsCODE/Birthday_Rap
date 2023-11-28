@@ -103,7 +103,7 @@ const Registration = () => {
           className="grid gap-6"
           noValidate
         >
-          <div>
+          <div className="relative">
             <input
               type="tle"
               id="phone"
@@ -115,14 +115,14 @@ const Registration = () => {
               onChange={handleInputChange}
             />
             {userError.phoneError && (
-              <p className="flex gap-2 items-center text-xs text-error">
+              <p className="absolute flex gap-2 items-center text-xs text-error">
                 <span className="errorSign">!</span>
                 {userError.phoneError}
               </p>
             )}
           </div>
 
-          <div>
+          <div className="relative">
             <input
               type="text"
               id="name"
@@ -133,14 +133,14 @@ const Registration = () => {
               onChange={handleInputChange}
             />
             {userError.nameError && (
-              <p className="flex gap-2 items-center text-xs text-error">
+              <p className="absolute flex gap-2 items-center text-xs text-error">
                 <span className="errorSign">!</span>
                 {userError.nameError}
               </p>
             )}
           </div>
 
-          <div>
+          <div className="relative">
             <input
               type="email"
               id="email"
@@ -151,7 +151,7 @@ const Registration = () => {
               onChange={handleInputChange}
             />
             {userError.emailError && (
-              <p className="flex gap-2 items-center text-xs text-error">
+              <p className="absolute flex gap-2 items-center text-xs text-error">
                 <span className="errorSign">!</span>
                 {userError.emailError}
               </p>
@@ -169,7 +169,7 @@ const Registration = () => {
               I accept Terms & Conditions and Privacy Policy of Mondelez
               (Cadbury).
               {userError.termsError && (
-                <p className="flex gap-2 items-center text-xs text-error">
+                <p className="absolute flex gap-2 items-center text-xs text-error">
                   <span className="errorSign">!</span>
                   {userError.termsError}
                 </p>
@@ -207,7 +207,7 @@ const Registration = () => {
             <button
               type="submit"
               onClick={handleSubmitClick}
-              className="defaultButton"
+              className="defaultButton "
             >
               Submit
             </button>

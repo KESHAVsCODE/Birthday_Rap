@@ -12,7 +12,7 @@ const SplashScreen = () => {
 
   return (
     <section
-      className="flex justify-center items-center h-screen bg-cover bg-center px-6"
+      className="flex justify-center items-center h-full bg-cover bg-center px-6"
       style={{ backgroundImage: `url(${BG})` }}
     >
       <div className="">

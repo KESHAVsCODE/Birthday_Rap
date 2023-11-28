@@ -31,7 +31,7 @@ const BirthdayPerson = () => {
   };
   const handleProceedClick = () => {
     if (!birthdayPersonDetails.birthdayPersonName) {
-      setNameError("Please enter your birthday person full name");
+      setNameError("Please enter the name of your birthday person");
       return;
     }
     setNameError("");
@@ -68,7 +68,7 @@ const BirthdayPerson = () => {
         >
           {/* ========================================= */}
 
-          <div>
+          <div className="relative">
             <label htmlFor="birthdayPersonName" className="inputLabelText">
               Their name
             </label>
@@ -82,7 +82,7 @@ const BirthdayPerson = () => {
               onChange={handleInputChange}
             />
             {nameError && (
-              <p className="flex gap-2 items-center text-xs text-error">
+              <p className="absolute flex gap-2 items-center text-xs text-error">
                 <span className="errorSign">!</span>
                 {nameError}
               </p>

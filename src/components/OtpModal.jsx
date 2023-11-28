@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 const OtpModal = ({ close }) => {
   const [generatedOtp, setGeneratedOtp] = useState("");
+
+  const inputOtpRef = useRef([]);
 
   const [inputOtp, setInputOtp] = useState({
     digit1: "",
@@ -33,6 +35,7 @@ const OtpModal = ({ close }) => {
 
   useEffect(() => {
     getRandomFourDigitOtp();
+    inputOtpRef.current[0].focus();
   }, []);
 
   const handleOtpSubmitClick = () => {
@@ -44,7 +47,6 @@ const OtpModal = ({ close }) => {
       digit3Error: !digit3,
       digit4Error: !digit4,
     };
-
     if (!digit1 || !digit2 || !digit3 || !digit4) {
       setInputOtpError(errors);
       return;
@@ -59,16 +61,26 @@ const OtpModal = ({ close }) => {
       }
     }
   };
-  const handleInputChange = (e) => {
+  const handleInputChange = (e, index) => {
     const { id, value } = e.target;
-    // if (key !== 8 && !/^[0-9]+$/.test(value)) {
-    //   return;
-    // }
     setInputOtp({ ...inputOtp, [id]: value });
+    if (/^[0-9]+$/.test(value)) {
+      if (inputOtpRef.current.length === index + 1) return;
+      inputOtpRef.current[index + 1].focus();
+    }
   };
 
   const handleResendOtpClick = () => {
     getRandomFourDigitOtp();
+    inputOtpRef.current[0].focus();
+    setWrongOtpError(false);
+    setInputOtpError({
+      digit1Error: false,
+      digit2Error: false,
+      digit3Error: false,
+      digit4Error: false,
+    });
+
     setInputOtp({
       digit1: "",
       digit2: "",
@@ -78,7 +90,7 @@ const OtpModal = ({ close }) => {
   };
 
   return (
-    <div className="p-6 rounded-lg">
+    <div className="p-6 rounded-xl">
       <h3 className="pb-2 text-lg text-center tracking-wide font-gibson font-semibold text-purple">
         Enter OTP
       </h3>
@@ -86,7 +98,10 @@ const OtpModal = ({ close }) => {
       <ul className="flex gap-3">
         <li>
           <input
-            onChange={handleInputChange}
+            onChange={(e) => handleInputChange(e, 0)}
+            ref={(e) => {
+              inputOtpRef.current[0] = e;
+            }}
             type="text"
             id="digit1"
             value={digit1}
@@ -96,7 +111,10 @@ const OtpModal = ({ close }) => {
         </li>
         <li>
           <input
-            onChange={handleInputChange}
+            onChange={(e) => handleInputChange(e, 1)}
+            ref={(e) => {
+              inputOtpRef.current[1] = e;
+            }}
             type="text"
             id="digit2"
             value={digit2}
@@ -106,7 +124,10 @@ const OtpModal = ({ close }) => {
         </li>
         <li>
           <input
-            onChange={handleInputChange}
+            onChange={(e) => handleInputChange(e, 2)}
+            ref={(e) => {
+              inputOtpRef.current[2] = e;
+            }}
             type="text"
             id="digit3"
             value={digit3}
@@ -116,7 +137,10 @@ const OtpModal = ({ close }) => {
         </li>
         <li>
           <input
-            onChange={handleInputChange}
+            onChange={(e) => handleInputChange(e, 3)}
+            ref={(e) => {
+              inputOtpRef.current[3] = e;
+            }}
             type="text"
             id="digit4"
             value={digit4}
@@ -133,12 +157,14 @@ const OtpModal = ({ close }) => {
         </p>
       )}
 
-      <p
-        onClick={handleResendOtpClick}
-        className="my-2 text-purple font-gibson tracking-wide font-semibold text-xs text-right underline cursor-pointer"
-      >
-        Resend OTP
-      </p>
+      <div className="flex justify-end">
+        <p
+          onClick={handleResendOtpClick}
+          className="my-2 text-purple font-gibson tracking-wide font-semibold text-xs text-right underline cursor-pointer"
+        >
+          Resend OTP
+        </p>
+      </div>
 
       <div className="flex justify-center">
         <button onClick={handleOtpSubmitClick} className="defaultButton">

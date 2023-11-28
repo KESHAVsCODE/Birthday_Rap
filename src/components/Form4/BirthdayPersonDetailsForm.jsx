@@ -59,7 +59,7 @@ const BirthdayPersonDetailsForm = () => {
           />
           <img
             src={MessageImg}
-            className=" max-w-[220px]"
+            className="max-w-[220px] -mt-2"
             alt="headphone-image"
           />
           <img
@@ -198,7 +198,7 @@ const BirthdayPersonDetailsForm = () => {
                 e.preventDefault();
                 setAnswerMore((prev) => !prev);
               }}
-              className="defaultButton px-4 text-white bg-white bg-opacity-40"
+              className="px-4 py-3 text-xl font-gibson font-semibold tracking-wide rounded-xl cursor-pointer text-white bg-white bg-opacity-40"
             >
               Answer {answerMore ? "Less" : "More"}
             </button>
@@ -206,7 +206,7 @@ const BirthdayPersonDetailsForm = () => {
             <button
               type="submit"
               onClick={handleProceedClick}
-              className="defaultButton"
+              className="px-10 py-3 text-xl font-gibson font-semibold tracking-wide rounded-xl bg-yellow text-purple cursor-pointer"
             >
               Proceed
             </button>

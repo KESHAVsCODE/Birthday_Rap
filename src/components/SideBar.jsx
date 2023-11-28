@@ -8,11 +8,11 @@ const SideBar = ({ setSideBarVisible: { closeSideBar, sideBarRef } }) => {
   return (
     <section
       name="sidebar"
-      className={`w-full h-screen fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 backdrop-blur z-[999]`}
+      className={`w-full h-full fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 backdrop-blur z-[999]`}
     >
       <div
         ref={sideBarRef}
-        className="w-[60%] h-full ml-auto grid grid-rows-sideBarRows bg-purple bg-center bg-cover"
+        className="max-w-[350px] w-[60%] h-full ml-auto grid grid-rows-sideBarRows bg-purple bg-center bg-cover"
         style={{ backgroundImage: `url(${BG})` }}
       >
         <div
